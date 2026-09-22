@@ -1,5 +1,26 @@
-@if (products.length === 0) {
-    <p>No products available.</p>
-} @else {
-    <p>Products available: {{products.length}} </p>
+<ul class="pill-group">
+    @for (product of products; track product.id) {
+        <li class="pill" (click)="selectedProduct = product">
+            @switch (product.category) {
+                @case ('electronics') {
+                    <span>💻</span>
+                }
+                @case ('books') {
+                    <span>📚</span>
+                }
+                @default {
+                    <span>📦</span>
+                }
+            }
+            {{product.title}}
+        </li>
+    } @empty {
+        No products available
+    }
+</ul>
+@if (selectedProduct) {
+    <div>
+        Your selected product is:
+        <strong>{{selectedProduct.title}}</strong>
+    </div>
 }
