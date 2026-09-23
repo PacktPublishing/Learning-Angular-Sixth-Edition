@@ -1,0 +1,6 @@
+<div>
+    Your selected product is:
+    <strong>{{product().title}}</strong>
+</div>
+<p>{{product().price | currency:'EUR'}}</p>
+<button (click)="added.emit(1)">Add to cart</button>
