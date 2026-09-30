@@ -1,0 +1,25 @@
+@let product = selected();
+
+<ul class="pill-group">
+    @for (product of products(); track product.id) {
+        <li class="pill" (click)="selected.set(product)">
+            @switch (product.category) {
+                @case ('electronics') {
+                    <span>💻</span>
+                }
+                @case ('books') {
+                    <span>📚</span>
+                }
+                @default {
+                    <span>📦</span>
+                }
+            }
+            {{product.title}}
+        </li>
+    } @empty {
+        No products available
+    }
+</ul>
+@if (product) {
+    <app-product-detail [product]="product" (added)="onAdded($event)" />
+}

@@ -1,0 +1,27 @@
+<div>
+    Your selected product is:
+    <strong>{{product().title}}</strong>
+</div>
+<p>{{product().price | currency:'EUR'}}</p>
+@if (product().colors) {
+    <div class="pill-group">
+        @for (color of product().colors; track color) {
+            <p
+                class="pill"
+                (click)="selectedColor.set(color)">
+                <span [hidden]="selectedColor() !== color">
+                    ✔️
+                </span>
+            {{color | titlecase}}
+            </p>
+        }
+    </div>
+}
+<div class="group">
+    <p>Quantity: {{qty()}}</p>
+    <button (click)="add()">+</button>
+    <button (click)="subtract()">-</button>
+</div>
+<hr />
+<p>Cost: {{cost() | currency:'EUR'}}</p>
+<button (click)="added.emit(qty())">Add to cart</button>
