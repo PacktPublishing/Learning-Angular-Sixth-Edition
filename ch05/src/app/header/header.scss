@@ -1,0 +1,28 @@
+:host {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.cart-popover {
+  padding: 1rem;
+  border: 1px solid #d1d5db;
+  border-radius: 0.5rem;
+  background: #fff;
+  color: #111827;
+  box-shadow: 0 10px 25px rgb(0 0 0 / 0.15);
+}
+
+.cart-popover:is(:popover-open, .\:popover-open) {
+  display: block;
+}
+
+@supports (position-area: block-end) {
+  .cart-popover {
+    inset: auto;
+    margin: 0;
+    position-area: block-end span-inline-start;
+    position-try-fallbacks: flip-block, flip-inline, flip-block flip-inline;
+  }
+}

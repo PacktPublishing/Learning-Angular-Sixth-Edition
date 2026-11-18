@@ -1,0 +1,10 @@
+<h2>Shopping Cart</h2>
+<ul>
+    @for (i of items(); track i.productId) {
+        @let pr = products().find(p => p.id === i.productId);
+        <li>
+            <span>{{pr!.title}}</span>
+            <span>{{i.qty}}</span>
+        </li>
+    }
+</ul>

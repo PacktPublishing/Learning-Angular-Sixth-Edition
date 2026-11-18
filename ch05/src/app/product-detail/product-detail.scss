@@ -1,0 +1,31 @@
+.group {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+
+  button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 2rem;
+    min-width: 2rem;
+    height: 2rem;
+    padding: 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+    line-height: 1;
+  }
+}
+
+.pill-group {
+  display: flex;
+  flex-direction: row;
+  align-items: start;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+}
+
+.pill {
+  --pill-accent: var(--electric-violet);
+}
+

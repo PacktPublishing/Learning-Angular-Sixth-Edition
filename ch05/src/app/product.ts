@@ -1,0 +1,11 @@
+type Category = 'books' | 'electronics';
+
+export interface Product {
+    id: number;
+    title: string;
+    price: number;
+    description: string;
+    category: Category;
+    image: string;
+    colors?: string[];
+}
